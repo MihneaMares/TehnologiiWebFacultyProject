@@ -57,6 +57,8 @@ router.patch('/me', auth, async (req, res) => {
 
 	if (!isValidUpdate) return res.status(400).send({ error: 'Invalid Updates' });
 
+	//dads
+
 	try {
 		updates.forEach((update) => (req.prof[update] = req.body[update]));
 
