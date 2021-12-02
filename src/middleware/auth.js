@@ -15,7 +15,7 @@ const auth = async (req, res, next) => {
 		if (!prof) throw new Error('Please authenticate!');
 		const tokens = await prof.getTokens();
 		let hasToken = false;
-		tokens.forEach(
+		tokens.some(
 			(authToken) => authToken.dataValues.token === token && (hasToken = true)
 		);
 		if (!hasToken) throw new Error('Please authenticate!');

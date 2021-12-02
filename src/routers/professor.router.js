@@ -4,7 +4,7 @@ const Professor = require('../models/professor.model');
 
 const router = new express.Router();
 
-router.post('/prof', async ({ body }, res) => {
+router.post('/register', async ({ body }, res) => {
 	try {
 		const prof = await Professor.create(body);
 		const data = await prof.authorize();
@@ -14,7 +14,7 @@ router.post('/prof', async ({ body }, res) => {
 	}
 });
 
-router.post('/prof/login', async ({ body }, res) => {
+router.post('/login', async ({ body }, res) => {
 	try {
 		const prof = await Professor.authenticate(body.email, body.password);
 		res.send(prof);
@@ -23,7 +23,7 @@ router.post('/prof/login', async ({ body }, res) => {
 	}
 });
 
-router.post('/prof/logout', auth, async (req, res) => {
+router.post('/logout', auth, async (req, res) => {
 	try {
 		await req.prof.logout(req.token);
 		res.send();
@@ -32,7 +32,7 @@ router.post('/prof/logout', auth, async (req, res) => {
 	}
 });
 
-router.post('/prof/logoutAll', auth, async (req, res) => {
+router.post('/logoutAll', auth, async (req, res) => {
 	try {
 		await req.prof.logoutAll();
 		res.send();
@@ -41,11 +41,11 @@ router.post('/prof/logoutAll', auth, async (req, res) => {
 	}
 });
 
-router.get('/prof/me', auth, (req, res) => {
+router.get('/me', auth, (req, res) => {
 	res.send(req.prof);
 });
 
-router.patch('/prof/me', auth, async (req, res) => {
+router.patch('/me', auth, async (req, res) => {
 	const updates = Object.keys(req.body);
 	const allowedUpdates = ['name', 'email', 'password'];
 	const isValidUpdate = updates.every(
@@ -67,7 +67,7 @@ router.patch('/prof/me', auth, async (req, res) => {
 	}
 });
 
-router.delete('/prof/me', auth, async (req, res) => {
+router.delete('/me', auth, async (req, res) => {
 	try {
 		await req.prof.destroy();
 		res.send(req.prof);

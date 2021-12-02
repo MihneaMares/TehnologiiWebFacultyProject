@@ -9,6 +9,8 @@ const sequelize = new Sequelize(
 		dialectOptions: {
 			charset: 'utf8mb4',
 		},
+		//Daca vreti sa vedeti ce comenzi sql se executa puneti logging pe true
+		logging: false,
 	}
 );
 
