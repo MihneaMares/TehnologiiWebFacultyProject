@@ -1,5 +1,4 @@
 const { DataTypes } = require('sequelize/dist');
-const shortid = require('shortid');
 const { sequelize } = require('../db/sequelize');
 
 const Activity = sequelize.define(
@@ -10,17 +9,8 @@ const Activity = sequelize.define(
 			allowNull: false,
 			defaultValue: DataTypes.UUIDV4,
 			primaryKey: true,
-			set() {
+			set(_value) {
 				return this.setDataValue('id', DataTypes.UUIDV4);
-			},
-		},
-		code: {
-			type: DataTypes.STRING,
-			defaultValue: shortid.generate(),
-			allowNull: false,
-			unique: true,
-			set() {
-				return shortid.generate();
 			},
 		},
 		name: {
@@ -55,11 +45,19 @@ Activity.associate = () => {
 	Activity.belongsTo(Professor, { foreignKey: 'profId' });
 };
 
-Activity.prototype.findByCode = async (code) => {
-	if (!shortid.isValid(code)) throw new Error('Unable to find activity!');
-	const activity = await Activity.findOne({ code });
-	if (!activity) throw new Error('Unable to find activity!');
+Activity.findByCode = async (code) => {
+	const activities = await Activity.findAll({});
+	const activity = activities.filter((activity) => {
+		return activity.dataValues.id.slice(0, 6) === code;
+	});
+	if (!activity[0]) throw new Error('Unable to find activity!');
 	return activity;
+};
+
+Activity.prototype.toJSON = function () {
+	const data = this.dataValues;
+	data.id = data.id.slice(0, 6);
+	return data;
 };
 
 module.exports = Activity;
