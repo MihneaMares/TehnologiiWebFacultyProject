@@ -9,14 +9,14 @@ const Feedback = sequelize.define(
 			allowNull: false,
 			defaultValue: DataTypes.UUIDV4,
 			primaryKey: true,
-			set() {
+			set(_value) {
 				return this.setDataValue('id', DataTypes.UUIDV4);
 			},
 		},
 		feedback: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			set() {
+			set(value) {
 				if (typeof value === 'string' || value instanceof String)
 					this.setDataValue('feedback', value.trim());
 			},
