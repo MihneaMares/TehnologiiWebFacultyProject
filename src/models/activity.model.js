@@ -51,7 +51,7 @@ Activity.findByCode = async (code) => {
 		return activity.dataValues.id.slice(0, 6) === code;
 	});
 	if (!activity[0]) throw new Error('Unable to find activity!');
-	return activity;
+	return activity[0];
 };
 
 Activity.prototype.toJSON = function () {

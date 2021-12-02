@@ -115,6 +115,8 @@ Professor.prototype.toJSON = function () {
 };
 
 Professor.addHook('beforeDestroy', (user, _options) => {
+	const { Activity } = sequelize.models;
+	Activity.destroy({ where: { profId: user.id } });
 	user.logoutAll();
 });
 
