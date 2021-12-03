@@ -54,6 +54,16 @@ Activity.findByCode = async (code) => {
 	return activity[0];
 };
 
+Activity.prototype.addFb = async function (value) {
+	const { Feedback } = sequelize.models;
+	const feedback = await Feedback.create({
+		activityId: this.id,
+		feedback: value,
+	});
+	await this.addFeedback(feedback);
+	return feedback;
+};
+
 Activity.prototype.toJSON = function () {
 	const data = this.dataValues;
 	data.id = data.id.slice(0, 6);

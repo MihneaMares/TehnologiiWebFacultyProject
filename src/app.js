@@ -11,13 +11,17 @@ app.use(express.json());
 app.use(profRouter);
 app.use(activityRouter);
 
+app.all('/*', (_req, res) => {
+	res.status(404).send({ error: 'Not a valid endpoint' });
+});
+
 init();
 (async () => {
 	require('./models/professor.model');
 	require('./models/authToken.model');
 	require('./models/activity.model');
 	require('./models/feedback.model');
-	await sequelize.sync({ force: true });
+	await sequelize.sync();
 	associate();
 	console.log('Models synchronized');
 })();

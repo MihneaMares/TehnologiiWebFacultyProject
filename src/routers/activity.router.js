@@ -28,7 +28,6 @@ router.get('/activities', auth, async (req, res) => {
 
 router.get('/activity/:code', async (req, res) => {
 	try {
-		console.log(req.params.code);
 		const activity = await Activity.findByCode(req.params.code);
 		res.status(200).send(activity);
 	} catch (error) {
@@ -69,4 +68,30 @@ router.delete('/activity/:code', auth, async (req, res) => {
 	}
 });
 
+router.post('/activity/:code/:feedback', async (req, res) => {
+	try {
+		const activity = await Activity.findByCode(req.params.code);
+		const feedback = await activity.addFb(req.params.feedback);
+		res.send({ feedback });
+	} catch (error) {
+		res.status(400).send({ error: error.message });
+	}
+});
+
+router.get('/activity/:code/feedbacks', auth, async (req, res) => {
+	try {
+		const activity = await Activity.findByCode(req.params.code);
+		const activities = await req.prof.getActivities();
+		const hasActivity = activities.some((act) => act.id === activity.id);
+		if (!hasActivity) {
+			throw new Error('Not authorized');
+		}
+		const feedbacks = await activity.getFeedbacks();
+		const counter = { 1: 0, '-1': 0, 0: 0, '?': 0 };
+		feedbacks.forEach((item) => counter[item.feedback]++);
+		res.send(counter);
+	} catch (error) {
+		res.status(400).send({ error: error.message });
+	}
+});
 module.exports = router;
