@@ -22,7 +22,10 @@ const Feedback = sequelize.define(
 			},
 			validate: {
 				isValidFeedback(value) {
-					return ['🙂', '🙁', '😮', '🤔'].includes(value);
+					if (!['1', '-1', '0', '?'].includes(value))
+						throw new Error(
+							'Invalid feedback value! Available values: 1: good, -1: bad, 0: wow, ?: unclear'
+						);
 				},
 			},
 		},
