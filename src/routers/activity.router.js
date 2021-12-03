@@ -38,7 +38,8 @@ router.get("/activity/:code", async (req, res) => {
 router.post("/activity/:code/:feedback", async (req, res) => {
   try {
     const activity = await Activity.findByCode(req.params.code);
-    await activity.addFeedback(req.params.feedback);
+    console.log(activity);
+    if (activity) await activity.addFb(req.params.feedbacks);
     res.send({ message: "Saved." });
   } catch (error) {
     res.status(400).send({ error: error.message });

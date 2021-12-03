@@ -61,7 +61,7 @@ Activity.prototype.toJSON = function () {
   return data;
 };
 
-Activity.prototype.addFeedback = async function (value) {
+Activity.prototype.addFb = async (value) => {
   const { Feedback } = sequelize.models;
   const feedback = await Feedback.create({
     activityId: this.id,
