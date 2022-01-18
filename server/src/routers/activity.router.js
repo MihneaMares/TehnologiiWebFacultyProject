@@ -13,6 +13,7 @@ router.post('/activity', auth, async (req, res) => {
 		});
 		res.status(201).send(activity);
 	} catch (error) {
+		console.log(error);
 		res.status(400).send({ error: error.message });
 	}
 });

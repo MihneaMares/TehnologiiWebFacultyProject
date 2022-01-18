@@ -1,0 +1,196 @@
+.header {
+	font-size: 3.2rem;
+	color: white;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	margin-bottom: 2.5rem;
+}
+
+.control-group {
+	margin: 3rem auto;
+	width: 95%;
+	max-width: 50rem;
+	border-radius: 6px;
+	background-color: #3432a8;
+	box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
+	padding: 2rem;
+	text-align: center;
+	color: white;
+}
+
+.form-control {
+	margin-bottom: 1rem;
+	font-size: 2rem;
+}
+
+.form-control input,
+.form-control label {
+	display: block;
+}
+
+.form-control label {
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+}
+
+.form-control input,
+.form-control select {
+	font: inherit;
+	padding: 0.5rem;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	width: 50rem;
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+.form-control input:focus {
+	outline: none;
+	border-color: #3466f8;
+	background-color: #d0ebff;
+}
+
+.form-controls {
+	margin-top: 2.4rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.control-group {
+	display: flex;
+	column-gap: 1rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.control-group .form-control {
+	min-width: 30rem;
+	flex: 1;
+}
+
+.form-actions {
+	text-align: right;
+}
+
+.form-actions button {
+	margin-left: 1rem;
+}
+
+.invalid input {
+	border: 1px solid #f03e3e;
+	background-color: #fff5f5;
+}
+
+.invalid input:focus {
+	border-color: #fd7e14;
+	background-color: #fff4e6;
+}
+
+.error-text {
+	text-align: left;
+	margin-left: 5rem;
+	color: #f03e3e;
+	font-size: 1.6rem;
+	margin-top: 0.5rem;
+}
+
+.secondary-button {
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	color: #d0ebff;
+	font-weight: 400;
+	font-size: 1.8rem;
+}
+
+/* .smaller-form {
+	font-size: 0.2rem !important;
+} */
+
+.smaller-form > .header {
+	font-size: 2rem;
+}
+
+.smaller-form .control-group {
+	margin: 0;
+	padding: 0;
+}
+
+.smaller-form > .form-control {
+	font-size: 1.4rem;
+}
+
+.smaller-form .invalid {
+	font-size: 1.4rem;
+}
+
+.smaller-form input {
+	font-size: 1.4rem;
+	width: 35rem;
+}
+
+.smaller-form .error-text {
+	font-size: 1.4rem;
+	text-align: left;
+}
+
+textarea {
+	resize: none;
+	width: 35rem;
+	height: 10rem;
+	border-radius: 7px;
+	overflow: hidden;
+	font: inherit;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	max-width: 80%;
+	margin: 0 auto;
+}
+
+textarea:focus {
+	outline: none;
+	border: 1px solid #3466f8;
+	background-color: #d0ebff;
+}
+
+.invalid textarea {
+	border: 1px solid #f03e3e;
+	background-color: #fff5f5;
+}
+
+.invalid textarea:focus {
+	border-color: #fd7e14;
+	background-color: #fff4e6;
+}
+
+.smaller-form p {
+	font-size: 1.4rem;
+}
+
+.smaller-form button {
+	font-size: 1.6rem;
+	padding: 1rem 2rem;
+	border-radius: 13px;
+}
+
+.smaller-form {
+	column-gap: 0.5rem;
+}
+
+.x-btn {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	font-size: 3rem;
+	color: #3466f8;
+	font-weight: bold;
+	position: absolute;
+	top: 0.5rem;
+	right: 1rem;
+}

@@ -1,0 +1,46 @@
+.prompt-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.prompt-container {
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+
+.btn-container {
+	display: flex;
+	gap: 1rem;
+}
+
+.btn-container button {
+	font-size: 2.8rem;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	border-radius: 11px;
+	border: 2px solid white;
+	top: 1rem;
+	left: 1rem;
+}
+
+.no-btn {
+	background-color: #e03131;
+}
+
+.yes-btn {
+	background-color: #37b24d;
+}
+
+.no-btn:hover {
+	background-color: transparent;
+	color: #e03131;
+}
+
+.yes-btn:hover {
+	background-color: transparent;
+
+	color: #37b24d;
+}
