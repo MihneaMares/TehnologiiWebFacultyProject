@@ -26,7 +26,7 @@ router.post('/login', async ({ body }, res) => {
 router.post('/logout', auth, async (req, res) => {
 	try {
 		await req.prof.logout(req.token);
-		res.send();
+		res.send(req.prof);
 	} catch (error) {
 		res.status(500).send({ error: error.message });
 	}
@@ -35,7 +35,7 @@ router.post('/logout', auth, async (req, res) => {
 router.post('/logoutAll', auth, async (req, res) => {
 	try {
 		await req.prof.logoutAll();
-		res.send();
+		res.send(req.prof);
 	} catch (error) {
 		res.status(500).send({ error: error.message });
 	}
@@ -47,7 +47,7 @@ router.get('/me', auth, (req, res) => {
 
 router.patch('/me', auth, async (req, res) => {
 	const updates = Object.keys(req.body);
-	const allowedUpdates = ['name', 'email', 'password'];
+	const allowedUpdates = ['name', 'email'];
 	const isValidUpdate = updates.every(
 		(update) =>
 			allowedUpdates.includes(update) &&

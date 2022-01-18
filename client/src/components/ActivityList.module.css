@@ -1,0 +1,31 @@
+.activities {
+	width: 90%;
+	margin: 1.5rem auto;
+	animation: meals-appear 1s ease-out forwards;
+}
+
+.activities ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	color: #3444c3;
+	font-size: 1.8rem;
+}
+
+.list-heading {
+	color: #3444c3;
+	font-size: 2.6rem;
+}
+
+.refresh-btn {
+	font-size: 2.8rem;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	border-radius: 11px;
+	border: 2px solid white;
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	background-color: #fcc419;
+}

@@ -1,0 +1,122 @@
+.container {
+	color: white;
+	font-size: 2.4rem;
+	display: grid;
+	text-align: center;
+	font-weight: bold;
+	grid-template-columns: 20rem 3.5fr 1fr;
+	grid-template-rows: 80px 1fr;
+	height: calc(100vh - 8rem - 3px);
+}
+
+.user-nav {
+	background-color: #adb5bd;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	/* justify-content: center; */
+	flex-shrink: 0;
+}
+
+.user-info {
+	font-size: 1.4rem;
+	text-size-adjust: auto;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.user-icon {
+	font-size: 10rem;
+	background-color: #3444c3;
+	padding: 1rem;
+	border-radius: 50%;
+	border: 1px solid white;
+	margin-bottom: 3rem;
+}
+
+.edit-user {
+	font-size: 1.6rem;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-self: center;
+	border-radius: 7px;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.edit-user-icon {
+	font-size: 3rem;
+}
+
+.user-nav,
+.activity-container,
+.activity-description-container {
+	padding-top: 2.4rem;
+}
+
+.break-line-horizontal {
+	width: 100%;
+	height: 2px;
+	background-color: white;
+}
+
+.activity-container {
+	background-color: #d0ebff;
+	position: relative;
+	overflow-y: scroll;
+}
+
+.user-nav {
+	background-color: #3432a8;
+	color: white;
+	grid-row: 1 / -1;
+}
+
+.secondary-button {
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	color: #d0ebff;
+	font-weight: 400;
+	font-size: 1.6rem;
+	padding: 0.5rem 1rem;
+	position: absolute;
+	bottom: 2rem;
+	text-align: center;
+}
+
+.new-activity-btn {
+	font-size: 1.4rem;
+	padding: 1rem 2rem;
+	border-radius: 11px;
+}
+
+.control-panel {
+	background-color: #3444c3;
+	color: white;
+	grid-column: 2 / -1;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 0 40px;
+}
+
+.activity-description-container {
+	background-color: #e7f5ff;
+}
+
+.profile-heading {
+	color: #3444c3;
+	font-size: 2.6rem;
+}
+
+.description {
+	font-size: 1.8rem;
+	font-weight: 600;
+	color: #3432a8;
+	text-align: left;
+	margin: 4rem;
+}

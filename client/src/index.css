@@ -1,0 +1,38 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	/* font-size: 10px; */
+
+	/* 10px / 16px = 0.625 = 62.5% */
+	/* Percentage of user's browser font-size setting */
+	font-size: 62.5%;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	line-height: 1;
+	font-weight: 400;
+	color: #555;
+
+	/* Only works if there is nothing absolutely positioned in relation to body */
+	overflow-x: hidden;
+	background-image: radial-gradient(
+		circle at bottom right,
+		rgb(52, 33, 141) 0%,
+		rgb(52, 33, 141) 20%,
+		rgb(52, 50, 168) 20%,
+		rgb(52, 50, 168) 40%,
+		rgb(52, 68, 195) 40%,
+		rgb(52, 68, 195) 60%,
+		rgb(52, 85, 221) 60%,
+		rgb(52, 85, 221) 80%,
+		rgb(52, 102, 248) 80%,
+		rgb(52, 102, 248) 100%
+	);
+	height: 100vh;
+}
