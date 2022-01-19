@@ -10,12 +10,13 @@ import AuthContext from '../store/auth-context';
 import ActivityLink from './ActivityLink';
 
 const ActivityItem = (props) => {
-	const showDescriptionHandler = () => {
-		props.showDescription(props.activity.description);
-	};
 	const [feedbacks, setFeedbacks] = useState([]);
 	const [isActivityForm, setIsActivityForm] = useState(false);
 	const [isShareModal, setIsShareModal] = useState(false);
+	const showDescriptionHandler = () => {
+		props.showDescription(props.activity.description);
+		props.showTimestamps(feedbacks['timestamps']);
+	};
 
 	const { sendRequest, error, isLoading } = useHttp();
 	const authContext = useContext(AuthContext);

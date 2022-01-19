@@ -18,6 +18,7 @@ const Profile = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [description, setDescription] = useState('');
+	const [timestamps, setTimestamps] = useState('');
 	const [isActivityForm, setIsActivityForm] = useState(false);
 	const [isEditProfileForm, setIsEditProfileForm] = useState(false);
 	const [areYouSure, setAreYouSure] = useState(false);
@@ -121,6 +122,17 @@ const Profile = () => {
 		setDescription(description);
 	};
 
+	const timestampsHandler = (timestamps) => {
+		const timeList = timestamps.map((time) => (
+			<li style={{ fontSize: '1.4rem', listStyle: 'none' }} key={Math.random()}>
+				{time}
+			</li>
+		));
+		console.log(timeList);
+
+		setTimestamps(timeList);
+	};
+
 	const showActivityForm = () => {
 		setIsActivityForm(true);
 	};
@@ -202,6 +214,7 @@ const Profile = () => {
 								{activities.map((activity) => (
 									<ActivityItem
 										showDescription={descriptionHandler}
+										showTimestamps={timestampsHandler}
 										onRemoveActivity={removeActivityHandler}
 										key={activity.id}
 										activity={activity}
@@ -216,7 +229,12 @@ const Profile = () => {
 				</main>
 				<aside className={classes['activity-description-container']}>
 					<p className={classes['profile-heading']}>Activity Description</p>
-					<p className={classes.description}>{description}</p>
+					<p className={classes.description}>
+						{description}
+
+						<p style={{ marginTop: '1rem' }}>Timestamps:</p>
+						{timestamps}
+					</p>
 				</aside>
 			</div>
 		</>

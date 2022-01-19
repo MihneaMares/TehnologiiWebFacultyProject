@@ -88,8 +88,42 @@ router.get('/activity/:code/feedbacks', auth, async (req, res) => {
 			throw new Error('Not authorized');
 		}
 		const feedbacks = await activity.getFeedbacks();
-		const counter = { 1: 0, '-1': 0, 0: 0, '?': 0 };
-		feedbacks.forEach((item) => counter[item.feedback]++);
+		const counter = { 1: 0, '-1': 0, 0: 0, '?': 0, timestamps: [] };
+
+		feedbacks.forEach((item) => {
+			counter[item.feedback]++;
+			let emoji;
+			switch (item.feedback) {
+				case '1': {
+					emoji = '🙂';
+					break;
+				}
+				case '-1': {
+					emoji = '😕';
+					break;
+				}
+				case '0': {
+					emoji = '😮';
+					break;
+				}
+				default: {
+					emoji = '🤔';
+					break;
+				}
+			}
+			counter.timestamps.push(
+				emoji +
+					' ' +
+					new Date(item.createdAt).toLocaleString('en-US', {
+						day: '2-digit',
+						month: 'short',
+						year: 'numeric',
+						hour: 'numeric',
+						minute: 'numeric',
+					})
+			);
+		});
+		console.log(counter);
 		res.send(counter);
 	} catch (error) {
 		res.status(400).send({ error: error.message });
